@@ -1,0 +1,35 @@
+form {
+    
+    border-radius: 3px;
+    padding: 40px;
+    background-color: #333333;
+}
+label{
+    color: #ffffff;
+    font-family: 'Cinzel', serif;
+}
+input {
+    padding: 5px 20px;
+    width: 100%;
+    line-height: 16px;
+    margin: 10px 0;
+}
+button{
+    width: 100%;
+    line-height: 16px;
+    background-color: #22C4DD;
+    padding: 5px 20px;
+    border: none;
+    color:whitesmoke;
+}
+#errorMsg {
+    p{
+    color:  #ff0f0f;
+    font-size: 20px;
+}
+}
+input:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}

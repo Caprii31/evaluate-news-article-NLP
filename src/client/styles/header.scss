@@ -1,0 +1,16 @@
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 40px;
+    background-color: #565656;
+    height: 100px;
+}
+.title{
+    h1{
+        color: whitesmoke;
+        font-family: 'Cinzel', serif;
+        font-size: 30px;
+        font-weight: 800;
+    }
+}
