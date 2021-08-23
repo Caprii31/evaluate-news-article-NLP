@@ -1,69 +1,47 @@
-const dotenv = require('dotenv');
-dotenv.config();
+// TODO: Configure the environment variables
 
-const textApi = {
-    application_key: process.env.API_KEY
-};
-
-
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
 const mockAPIResponse = require('./mockAPI.js')
-const http = require('http');
 
-const app = express()
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(cors());
-app.use(express.static('dist'))
+const PORT = 8081
 
-console.log(__dirname)
+// TODO add Configuration to be able to use env variables
+
+
+// TODO: Create an instance for the server
+// TODO: Configure cors to avoid cors-origin issue
+// TODO: Configure express to use body-parser as middle-ware.
+// TODO: Configure express static directory.
 
 app.get('/', function (req, res) {
-    res.sendFile('dist/index.html')
+    // res.sendFile('dist/index.html')
+    res.sendFile(path.resolve('src/client/views/index.html'))
 })
+// a route that handling post request for new URL that coming from the frontend
+/* TODO:
+    1. GET the url from the request body
+    2. Build the URL it should be something like `${BASE_API_URL}?key=${MEAN_CLOUD_API_KEY}&url=${req.body.url}&lang=en`
+    3. Fetch Data from API
+    4. Send it to the client
+    5. REMOVE THIS TODO AFTER DOING IT 😎😎
+    server sends only specified data to the client with below codes
+     const sample = {
+       text: '',
+       score_tag : '',
+       agreement : '',
+       subjectivity : '',
+       confidence : '',
+       irony : ''
+     }
+*/
 
-// designates what port the app will listen to for incoming requests
-app.listen(8081, function () {
-    console.log('Example app listening on port 8081!')
-})
-
-app.post('/test', bodyParser.json(), function (req, res) {
+app.get('/test', function (req, res) {
     res.send(mockAPIResponse)
 })
 
-app.post('/analysis',bodyParser.json(), function (req, res) {
-    console.log(req.body)
-    analyse(req.body.url, res);
-   
+// designates what port the app will listen to for incoming requests
+app.listen(PORT, (error) => {
+    if (error) throw new Error(error)
+    console.log(`Server listening on port ${PORT}!`)
 })
 
-function analyse(link, res) {
-               
-    let path = "/sentiment-2.1?key=" + textApi.application_key + "&of=json&url=" + link + "&lang=en";
-    console.log(path);
-
-    var options = {
-        host: "api.meaningcloud.com",
-        path: path,
-        method: 'POST'
-    };
-
-    callback = function(response) {
-        let dataStream = '';
-
-        //another stream of data has been received, so append it to `dataStream`
-        response.on('data', function (stream) {
-            dataStream += stream;
-        });
-
-        //the whole response has been received, so we just print it out here
-        response.on('end', function () {
-            // here response from meaningcloud
-            res.send(dataStream)
-        });
-    }
-
-    http.request(options, callback).end();
-}
+// TODO: export app to use it in the unit testing

@@ -1,60 +1,46 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Sentiment Analyzer</title>
+  </head>
 
-<head>
-    <meta charset="utf-8">
-    <title>News Article Evaluation</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Poppins:wght@300&display=swap"
-        rel="stylesheet">
-</head>
-
-<body>
-
-    <header>
-        <div class="title">
-            <h1>Evaluating a news article with Natural Language Processing</h1>
-        </div>
-    </header>
-
+  <body>
     <main>
+      <div class="container">
+        <p>Enter a URL of an article / a blog to discover its sentiment.</p>
         <section>
-            <form>
-                <label for="url">Please enter a URL:</label><br>
-                <input type="text" id="url" name="url" placeholder="http://www.example.com">
-                <div id="errorMsg"></div><br>
-                <button type="button" name="" value="submit"
-                    onclick="return Client.handleSubmit(event)">Evaluate</button>
-            </form>
+          <form id="form">
+            <label for="article-url">URL</label>
+            <input id="article-url" type="text" name="input" value="" placeholder="Enter Article URL here" />
+            <button
+              type="submit"
+              class="btn-submit"
+            >
+              Submit
+            </button>
+          </form>
         </section>
 
         <section>
-
-            <h2 class="result"> Evaluation Results</h2>
-            <div class="analysis">
-                <div id="model"></div>
-                <div id="score_tag"></div>
-                <div id="agreement"></div>
-                <div id="subjectivity"></div>
-                <div id="confidence"></div>
-                <div id="irony"></div>
-            </div>
+          <strong>Form Results:</strong>
+          <div id="text"></div>
+          <div id="agreement"></div>
+          <div id="subjectivity"></div>
+          <div id="confidence"></div>
+          <div id="irony"></div>
+          <div id="score_tag"></div>
         </section>
+      </div>
     </main>
-
-    <footer>
-        <p>Evaluating a news article with the Meaning Cloud API, Udacity Project by Sabrina Roestenburg</p>
-    </footer>
     <script>
-         // Check that service workers are supported
-           if ('serviceWorker' in navigator) {
-               // Use the window load event to keep the page load performant
-               window.addEventListener('load', () => {
-                   navigator.serviceWorker.register('/service-worker.js');
-               });
-           }
-           
+      // Check that service workers are supported
+      if ('serviceWorker' in navigator) {
+        // Use the window load event to keep the page load performant
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+        })
+      }
     </script>
-</body>
-
+  </body>
 </html>
