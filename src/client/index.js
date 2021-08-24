@@ -1,16 +1,14 @@
 //import js 
+import { passURL } from "./js/mainPlayer"
+import { checkIfURL } from "./js/checker"
+//import { postURL } from "./js/mainPlayer"
 
-import { }
-// TODO include your scss file here
+// import sass
+import './styles/style.scss'
 
-// TODO: get the button for submit
-// TODO: add event listener to it when the click to call handleSubmit function
-/**
- * TODO
- *  - Get Value of the input for URL
- *  - Check if it's URL or not
- *      yes
- *          send it to the backend
- *      no
- *          show user message it's not valid URL
- */
+
+export{
+    passURL,
+    checkIfURL,
+    //postURL
+}
