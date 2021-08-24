@@ -3,6 +3,8 @@ const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 const WorkboxPlugin = require('workbox-webpack-plugin');
+const TerserPlugin = require("terser-webpack-plugin")
+
 
 
 
@@ -36,6 +38,7 @@ module.exports = {
        
     ],
     optimization: {
-        // TODO: Add Optimization for JS and CSS
-    }
+        minimize: true,
+        minimizer: [new TerserPlugin()],
+      }
 }
