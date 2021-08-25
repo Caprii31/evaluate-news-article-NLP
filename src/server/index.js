@@ -76,4 +76,4 @@ app.post('/postURL', async(req,res)=>{
 
 
 
-// TODO: export app to use it in the unit testing
+app.listen(process.env.port || 3000)
