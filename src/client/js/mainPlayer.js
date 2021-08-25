@@ -9,7 +9,7 @@ let userURL = document.getElementById('article-url').value
 
 // Check if it's URL or not
 if(Client.checkIfURL(userURL)){
-   postURL('http://localhost:3000/postURl', {url:userURL})
+   postURL('http//:localhost:3000/posturl', {url:userURL})
    .then(res =>{
        console.log(res)
        document.getElementById('agreement').innerHTML=`Agreement:  ${res.agreement}`
