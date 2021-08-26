@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>NLP NanoDegree</title>
+  </head>
+
+  <body>
+    <main>
+      <h1><span>NLP</span> Sentmental analysis</h1>
+      <div class="container">
+        <section id="form-container">
+          <p>Enter a URL of an article</p>
+          <form id="form">
+            <input id="article-url" type="text" name="input" value="" onblur="onBlur()" placeholder="Enter URL">
+            <input id="user-sub" type="submit" name="" value="submit" onclick="return Client.passURL(event)" onsubmit="return Client.passURL(event)">
+          </form>
+        </section>
+
+        <section id="result-container">
+          <strong>Form Results:</strong>
+          <div id="text"></div>
+          <div id="agreement"></div>
+          <div id="model"></div>
+          <div id="confidence"></div>
+          <div id="irony"></div>
+          <div id="score_tag"></div>
+          <div id="subjective"></div>
+        </section>
+      </div>
+    </main>
+    <script>
+      // Check that service workers are supported
+      if ('serviceWorker' in navigator) {
+        // Use the window load event to keep the page load performant
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+        })
+      }
+    </script>
+  <script type="text/javascript" src="main.js"></script></body>
+</html>
