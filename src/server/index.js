@@ -14,11 +14,6 @@ const express = require('express');
 const app = express();
 
 
-
-
-
-
-
 //cors
 const cors = require('cors');
 app.use(cors());
@@ -63,7 +58,7 @@ app.post('/postURL', async(req,res)=>{
             confidence: data.confidence,
             irony: data.irony,
             model: data.model,
-            senText: data.sentence_list[0].text,
+            //senText: data.sentence_list[0].text,
             scoreTag: data.score_tag,
             subjective: data.subjectivity 
         }
